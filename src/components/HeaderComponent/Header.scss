@@ -1,0 +1,29 @@
+@import '../../variables.scss';
+
+.header {
+    background-color: $blue-pale-color;
+    width: $side-width;
+    height: $header-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-text{
+    font-size: 16px;
+    color: $primary-color;
+    text-shadow: 1px 1px 1px $text-color;
+    margin: 0;
+    padding: 0 4px;
+    line-height: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 739px) {
+    .header{
+        width: 100%;
+        // position: absolute;
+        // top: $map-height-s;
+    }
+}
