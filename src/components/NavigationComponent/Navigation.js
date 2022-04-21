@@ -12,7 +12,6 @@ function Navigation({ dataHeading, dataBuildings, pushData, location, setLocatio
         const activeItem = document.querySelector('.active-item')
         if (activeItem)
             activeItem.style.top = buildingIndex * 40 + 'px'
-        console.log('re-render')
         if (buildingName)
             document.title = `3D Map - ${buildingName}`
     }, [buildingIndex, buildingName])
