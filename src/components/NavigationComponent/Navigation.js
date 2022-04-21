@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Navigation.scss'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 
 function Navigation({ dataHeading, dataBuildings, pushData, location, setLocation }) {
     const [buildingIndex, setBuildingIndex] = useState(undefined)
@@ -38,9 +38,9 @@ function Navigation({ dataHeading, dataBuildings, pushData, location, setLocatio
                             pushData(building.url)
                         }}
                     >
-                        <a href="#">{building.name}</a>
+                        <button>{building.name}</button>
                     </li>))}
-                    {buildingIndex === undefined || location && <div className='active-item'></div>}
+                    {buildingIndex === undefined || (location && <div className='active-item'></div>)}
                 </ul>)
             }
         </>
