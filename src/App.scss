@@ -25,8 +25,7 @@
 
 .navbar {
     width: $side-width;
-    position: absolute;
-    top: $header-height;
+    margin-top: $header-height;
 }
 
 .map {
@@ -46,7 +45,7 @@
 
     .navbar {
         width: 100%;
-        top: $map-height-s + $header-height;
+        margin-top: $map-height-s + $header-height;
     }
 
     .map{

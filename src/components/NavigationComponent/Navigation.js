@@ -14,14 +14,23 @@ function Navigation({ dataHeading, dataBuildings, pushData, location, setLocatio
             activeItem.style.top = buildingIndex * 40 + 'px'
         if (buildingName)
             document.title = `3D Map - ${buildingName}`
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [buildingIndex, buildingName])
+
+    const dataHeadingClickHandle = (dataHeading) => {
+        // location === dataHeading && setLocation(undefined) || setLocation(dataHeading)
+        if (location === dataHeading)
+            setLocation(undefined)
+        else
+            setLocation(dataHeading)
+    }
 
 
     return (
         <>
             <h2
                 onClick={() => {
-                    setLocation(dataHeading)
+                    dataHeadingClickHandle(dataHeading)
                     setBuildingIndex(undefined)
                 }}
                 className={`nav-heading ${location === dataHeading && 'active'}`}
