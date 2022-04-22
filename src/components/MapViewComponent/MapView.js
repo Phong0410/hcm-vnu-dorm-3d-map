@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import './MapView.scss'
 
+// truyền setMapUrl ra ngoài component
 let pullData
 MapView.pullData = (data) => {
     pullData(data)

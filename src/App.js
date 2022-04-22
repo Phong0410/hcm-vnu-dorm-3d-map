@@ -10,6 +10,7 @@ import MapView from './components/MapViewComponent/MapView.js'
 
 function App() {
 
+    // data
     const AxBuilding = [
         {
             name: 'Tòa AH',
@@ -106,6 +107,7 @@ function App() {
         }
     ]
 
+    // lưu trữ khu vực đang chọn (khu a, khu b hoặc khu a mở rộng,...)
     const [location, setLocation] = useState(undefined)
 
 
@@ -118,7 +120,7 @@ function App() {
                         dataHeading='Khu A mở rộng'
                         dataBuildings={AxBuilding}
                         location={location}
-                        pushData={MapView.pullData}
+                        pushData={MapView.pullData} // đẩy hàm setMapUrl vào Navigation
                         setLocation={setLocation}
                     >
                     </Navigation>
@@ -126,7 +128,7 @@ function App() {
                         dataHeading="Khu A"
                         dataBuildings={ABuildings}
                         location={location}
-                        pushData={MapView.pullData}
+                        pushData={MapView.pullData} // đẩy hàm setMapUrl vào Navigation
                         setLocation={setLocation}
                     >
                     </Navigation>
@@ -134,7 +136,7 @@ function App() {
                         dataHeading="Khu B"
                         dataBuildings={BBuildings}
                         location={location}
-                        pushData={MapView.pullData}
+                        pushData={MapView.pullData} // đẩy hàm setMapUrl vào Navigation
                         setLocation={setLocation}
                     ></Navigation>
                 </div>

@@ -5,20 +5,25 @@ import './Navigation.scss'
 import { useState, useEffect } from 'react'
 
 function Navigation({ dataHeading, dataBuildings, pushData, location, setLocation }) {
+
+    // state lưu thông tin (index, name) tòa nhà đang được chọn
     const [buildingIndex, setBuildingIndex] = useState(undefined)
     const [buildingName, setBuildingName] = useState(undefined)
 
+    // thay đổi vị trí highlight và đổi title trang web
     useEffect(() => {
         const activeItem = document.querySelector('.active-item')
         if (activeItem)
             activeItem.style.top = buildingIndex * 40 + 'px'
         if (buildingName)
             document.title = `3D Map - ${buildingName}`
+
+        // cuộn trang lên đầu
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [buildingIndex, buildingName])
 
+    // khi click vào heading thì hiện danh sách tòa nhà, click lần 2 ẩn đi
     const dataHeadingClickHandle = (dataHeading) => {
-        // location === dataHeading && setLocation(undefined) || setLocation(dataHeading)
         if (location === dataHeading)
             setLocation(undefined)
         else
@@ -44,7 +49,7 @@ function Navigation({ dataHeading, dataBuildings, pushData, location, setLocatio
                         onClick={() => {
                             setBuildingIndex(index)
                             setBuildingName(building.name)
-                            pushData(building.url)
+                            pushData(building.url) // building.url được truyền vào pushData -> setMapUrl của MapView component
                         }}
                     >
                         <button>{building.name}</button>
